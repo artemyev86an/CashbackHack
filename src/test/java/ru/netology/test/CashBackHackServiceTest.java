@@ -1,16 +1,10 @@
 package ru.netology.test;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import static org.junit.Assert.*;
+import org.junit.Test;
 import ru.netology.service.CashbackHackService;
-import ru.netology.service.CashbackHackService;
 
-public class CashbackHackServiceTest {
-
-    //Подробнее: кэшбек начисляется за каждую потраченную полную тысячу рублей,
-    // поэтому если вы покупаете что-то на 900 рублей,
-    // сервис должен посоветовать вам докупить "ещё чего-нибудь" на 100 рублей.
-
+public class CashBackHackServiceTest {
 
     @Test
     public void testAmount900() {
@@ -20,7 +14,7 @@ public class CashbackHackServiceTest {
         int actual = service.remain(900);
         int expected = 100;
 
-        Assert.assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -31,7 +25,7 @@ public class CashbackHackServiceTest {
         int actual = service.remain(1000);
         int expected = 0;
 
-        Assert.assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -42,7 +36,7 @@ public class CashbackHackServiceTest {
         int actual = service.remain(1001);
         int expected = 999;
 
-        Assert.assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -53,7 +47,7 @@ public class CashbackHackServiceTest {
         int actual = service.remain(999);
         int expected = 1;
 
-        Assert.assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -64,6 +58,6 @@ public class CashbackHackServiceTest {
         int actual = service.remain(0);
         int expected = 1000;
 
-        Assert.assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 }
